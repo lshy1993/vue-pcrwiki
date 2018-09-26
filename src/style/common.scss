@@ -1,0 +1,77 @@
+body {
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    background: #fed;
+    margin: 0;
+
+    .clearfixbox:after {
+        clear: both;
+        content: '';
+        display: block;
+    }
+
+    .clearfix{
+		float: left;
+    }
+    
+    h1 {
+        color: green;
+    }
+    
+    img {
+        width: 100%;
+    }
+    .tab-button {
+        padding: 6px 10px;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        border: 1px solid #ccc;
+        //cursor: pointer;
+        background: #f0f0f0;
+        margin-bottom: -1px;
+        margin-right: -1px;
+    }
+    .tab-button:hover {
+        background: #e0e0e0;
+    }
+    .tab-button.active {
+        background: #e0e0e0;
+    }
+    .tab {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+    div.small_icon32 {
+        width: 32px;
+        height: 32px;
+    }
+    div.small_icon48 {
+		width: 48px;
+		height: 48px;
+    }
+    div.small_icon64 {
+        width: 64px;
+        height: 64px;
+    }
+    div.small_icon90{
+        width: 90px;
+        height: 90px;
+    }
+    div.thumb128{
+        width: 128px;
+        height: 64px;
+    }
+    .relative{
+        position: relative;
+    }
+    .floatnum {
+        position: absolute;
+        bottom: 5px;
+        right: 10px;
+        font-size: 16px;
+        color: #000;
+        text-shadow: #fff -1px 0 0,#fff 0 -1px 0,#fff 1px 0 0,#fff 0 1px 0;
+    }
+    .col160{
+        width: 160px;
+    }
+}

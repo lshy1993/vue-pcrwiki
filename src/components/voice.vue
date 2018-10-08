@@ -1,6 +1,6 @@
 <template>
 <div>
-	<li v-for="(ele,key) in charaVoice" :key="">
+	<li v-for="(ele,key) in charaVoice" :key="key">
 	</li>
 
 

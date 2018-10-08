@@ -13,10 +13,9 @@
 </template>
 
 <script>
-import ArenaIndex from './arenaIndex.vue';
-import ClanReward from './clanReward.vue';
-import DailyMissionBonus from './dailyMissionBonus.vue';
-import StationaryMissionBonus from './stationaryMissionBonus.vue';
+import ArenaIndex from './mission/arenaIndex.vue';
+import DailyMissionBonus from './mission/dailyMissionBonus.vue';
+import StationaryMissionBonus from './mission/stationaryMissionBonus.vue';
 
 export default {
     name: 'Mission',
@@ -28,10 +27,10 @@ export default {
                     cn: '竞技场',
                     conponame: 'arena-index'
                 },
-                {
-                    cn: '工会战奖励',
-                    conponame: 'clan-reward'
-                },
+                // {
+                //     cn: '工会战奖励',
+                //     conponame: 'clan-reward'
+                // },
                 {
                     cn: '每日任务',
                     conponame: 'daily-mission-bonus'
@@ -50,7 +49,6 @@ export default {
     },
     components: {
         ArenaIndex,
-        ClanReward,
         DailyMissionBonus,
         StationaryMissionBonus
     }

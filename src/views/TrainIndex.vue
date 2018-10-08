@@ -21,9 +21,9 @@
 </template>
 
 <script>
-import TrainDetailTable from './trainDetailTable.vue';
-import QuestWaveTable from './questWaveTable.vue';
-import QuestDropTable from  './questDropTable.vue';
+import TrainDetailTable from './quest/trainDetailTable.vue';
+import QuestWaveTable from './quest/questWaveTable.vue';
+import QuestDropTable from  './quest/questDropTable.vue';
 
 export default {
     name: 'TrainTable',

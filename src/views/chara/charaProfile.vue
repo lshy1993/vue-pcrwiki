@@ -14,15 +14,15 @@
 </template>
 
 <script>
-import ProfileBar from './profileBar.vue';
-import ProfileImg from './profileImg.vue';
-import ProfileTable from './profileTable.vue';
-import BattleTable from './battleTable.vue';
-import BattlePatern from './battlePatern.vue'
-import SkillTable from './skillTable.vue';
-import PromotionTable from './promotionTable.vue';
-import CharaVoice from './charaVoice.vue';
-import CharaLove from './charaLove.vue';
+import ProfileBar from './profile/profileBar.vue';
+import ProfileImg from './profile/profileImg.vue';
+import ProfileTable from './profile/profileTable.vue';
+import BattleTable from './profile/battleTable.vue';
+import BattlePatern from './profile/battlePatern.vue'
+import SkillTable from './profile/skillTable.vue';
+import PromotionTable from './profile/promotionTable.vue';
+import CharaVoice from './profile/charaVoice.vue';
+import CharaLove from './profile/charaLove.vue';
 
 
 export default {

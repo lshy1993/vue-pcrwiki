@@ -47,7 +47,7 @@
 
 <script>
 export default {
-    name: 'StoryList',
+    name: 'StoryIndex',
     data(){
         return {
             mode: 0,

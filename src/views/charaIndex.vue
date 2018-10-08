@@ -12,11 +12,11 @@
 </template>
 
 <script>
-import CharaDataList from './charaDataList.vue';
-import CharaAlbum from './charaAlbum.vue';
+import CharaDataList from './chara/charaDataList.vue';
+import CharaAlbum from './chara/charaAlbum.vue';
 
 export default {
-    name: 'CharaMainList',
+    name: 'CharaIndex',
     data(){
         return{
             currentTab: 'chara-album',

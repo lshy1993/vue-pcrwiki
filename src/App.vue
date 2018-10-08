@@ -33,53 +33,7 @@ export default {
     data () {
         return {
             msg: 'Welcome to PcrWiki!',
-            naviBtn:[
-                {
-                    to: "/",
-                    url: '',
-                    txt: "首页"
-                },
-                {
-                    to: "/event",
-                    url: '',
-                    txt: "活动"
-                },
-                {
-                    to: "/chara",
-                    url: '',
-                    txt: "角色"
-                },
-                {
-                    to: "/story",
-                    url: '',
-                    txt: "故事"
-                },
-                {
-                    to: "/quest",
-                    url: '',
-                    txt: "地图"
-                },
-                {
-                    to: "/equip",
-                    url: '',
-                    txt: "装备"
-                },
-                {
-                    to: "/mission",
-                    url: '',
-                    txt: "任务·公会"
-                },
-                // {
-                //     to: "/kouryuaku",
-                //     url: '',
-                //     txt: "攻略"
-                // },
-                {
-                    to: "/about",
-                    url: '',
-                    txt: "关于"
-                }
-            ]
+            naviBtn: this.Common.naviBtn
         }
     },
     created: function() {

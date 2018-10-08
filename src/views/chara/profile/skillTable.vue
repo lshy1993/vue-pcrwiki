@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import SkillDetailTable from './skillDetailTable.vue';
+import SkillDetailTable from '@/components/skillDetailTable.vue';
 
 export default {
     name: 'SkillTable',

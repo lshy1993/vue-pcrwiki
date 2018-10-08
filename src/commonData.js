@@ -1,3 +1,56 @@
+var naviBtn = [
+    {
+        to: "/",
+        url: '',
+        txt: "首页"
+    },
+    {
+        to: "/event",
+        url: '',
+        txt: "活动"
+    },
+    {
+        to: "/clan",
+        url: '',
+        txt: "公会"
+    },
+    {
+        to: "/chara",
+        url: '',
+        txt: "角色"
+    },
+    {
+        to: "/story",
+        url: '',
+        txt: "故事"
+    },
+    {
+        to: "/quest",
+        url: '',
+        txt: "地图"
+    },
+    {
+        to: "/equip",
+        url: '',
+        txt: "装备"
+    },
+    {
+        to: "/mission",
+        url: '',
+        txt: "任务"
+    },
+    // {
+    //     to: "/kouryuaku",
+    //     url: '',
+    //     txt: "攻略"
+    // },
+    {
+        to: "/about",
+        url: '',
+        txt: "关于"
+    }
+]
+
 var status_type = ["none"            ,"hp"                  ,"atk"               , "def"           , "magic_str" , 
                    "magic_def"       ,"physical_critical"   ,"magic_critical"    , "dodge"         , "life_steal", 
                    "wave_hp_recovery","wave_energy_recovery","physical_penetrate","magic_penetrate","energy_recovery_rate",
@@ -139,6 +192,7 @@ function getVoice(chara,key){
 }
 
 export default {
+    naviBtn,
     status_type,
     equip_type,
     odds_file_icon,

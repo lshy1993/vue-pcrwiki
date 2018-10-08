@@ -78,10 +78,10 @@
 </template>
 
 <script>
-import EventDetailTable from './eventDetailTable.vue';
+import EventDetailTable from '../components/eventDetailTable.vue';
 
 export default {
-    name: 'EventMainList',
+    name: 'EventIndex',
     data(){
         return {
             mode: 0,

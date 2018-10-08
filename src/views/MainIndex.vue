@@ -26,17 +26,17 @@
 </template>
 
 <script>
-import ClanQuest from './clanQuest.vue';
-import EventQuest from './eventQuest.vue';
-import EventCampaign from './eventCampaign.vue';
-import EventGacha from './eventGacha.vue';
-import LoginBonus from './loginBonus.vue';
-import CountDownBox from './countDownBox.vue';
+import ClanQuest from '../components/clanQuest.vue';
+import EventQuest from '../components/eventQuest.vue';
+import EventCampaign from '../components/eventCampaign.vue';
+import EventGacha from '../components/eventGacha.vue';
+import LoginBonus from '../components/loginBonus.vue';
+import CountDownBox from '../components/countDownBox.vue';
 
 //import { spine } from '../spine-widget.js';
 
 export default {
-    name: 'EventIndex',
+    name: 'MainIndex',
     data(){
         return {
             currentEvent: {},

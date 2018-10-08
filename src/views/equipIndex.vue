@@ -15,7 +15,7 @@
 
 <script>
 export default {
-    name: 'EquiptMainList',
+    name: 'EquiptIndex',
     data(){
         return{
             equipDic: {}

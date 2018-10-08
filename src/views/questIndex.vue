@@ -12,11 +12,11 @@
 </template>
 
 <script>
-import QuestSelect from './questSelect.vue';
-import QuestDataList from './questDataList.vue';
+import QuestSelect from './quest/questSelect.vue';
+import QuestDataList from './quest/questDataList.vue';
 
 export default {
-    name: 'QuestMainList',
+    name: 'QuestIndex',
     data(){
         return{
             currentTab: 'quest-select',

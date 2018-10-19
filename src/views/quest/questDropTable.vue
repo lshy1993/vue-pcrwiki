@@ -1,6 +1,5 @@
 <template>
 <div id="questDropTable">
-    <h2>掉落详情</h2>
     <table>
         <tr v-for="i in 3" :key="i">
             <th>第{{i}}/3波</th>
@@ -106,9 +105,13 @@ export default {
 
 <style lang="scss">
 #questDropTable{
+    margin-top: 10px;
+    text-align: center;
     table {
         //border-collapse:collapse;
         border: solid #999 1px;
+        margin:  0 auto;
+
         th {
             font-weight: bold;
             text-align: left;

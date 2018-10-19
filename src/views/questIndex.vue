@@ -1,13 +1,15 @@
 <template>
-<div id="questMainList">
-    <button v-for="(tab,key) in tabs" v-bind:key="key"
-        v-bind:class="['tab-button', { active: currentTab === tab.conponame }]"
-        v-on:click="currentTab = tab.conponame">
-        {{ tab.cn }}
-    </button>
-    <keep-alive>
-        <component v-bind:is="currentTabComponent" class="tab"></component>
-    </keep-alive>
+<div class="inset-container">
+    <div class="section whitebox">
+        <button v-for="(tab,key) in tabs" v-bind:key="key"
+            v-bind:class="['tab-button', { active: currentTab === tab.conponame }]"
+            v-on:click="currentTab = tab.conponame">
+            {{ tab.cn }}
+        </button>
+        <keep-alive>
+            <component v-bind:is="currentTabComponent" class="tab"></component>
+        </keep-alive>
+    </div>
 </div>
 </template>
 
@@ -49,10 +51,5 @@ export default {
 </script>
 
 <style lang="scss">
-#questMainList {
-    div.small_icon {
-		width: 64px;
-		height: 64px;
-	}
-}
+
 </style>

@@ -1,7 +1,7 @@
 <template>
-<div>
+<div class="inset-container">
     <h2>关于</h2>
-    <div>
+    <div class="section whitebox">
         <ul>
             <li>本页面是基于vue+webpack制作的pcrwiki</li>
             <li>数据来源于游戏内部数据库，版权归cygames所有</li>

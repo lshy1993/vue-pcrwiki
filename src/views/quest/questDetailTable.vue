@@ -1,9 +1,9 @@
 <template>
-<div id="mainPanel" class="clearfix">
+<div id="mainPanel">
     <div id="detailBg" :style="{'top':imgpos }" >
         <img :src="imgurl" />
     </div>
-    <div id="questName">{{ questname }}</div>
+    <span id="questName">{{ questname }}</span>
     <table id="dropTable">
         <tr>
             <th>怪物</th>
@@ -188,13 +188,14 @@ export default {
 
 <style lang="scss">
 #mainPanel {
-    overflow: hidden;
+    display: inline-block;
     width: 800px;
     height: 400px;
     position: relative;
     border-radius: 20px;
     border: gold solid 1px;
     box-shadow: 0 1px 5px rgba(0,0,0,.2), 0 2px 2px rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.12);
+    text-align: left;
     
     #questName {
         position: relative;
@@ -204,7 +205,11 @@ export default {
         font-weight: bold;
     }
     #detailBg {
+        width: 800px;
+        height: 400px;
+        border-radius: 20px;
         position: absolute;
+        overflow: hidden;
     }
     #dropTable {
         position: absolute;

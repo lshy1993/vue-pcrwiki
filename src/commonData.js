@@ -39,11 +39,11 @@ var naviBtn = [
         url: '',
         txt: "任务"
     },
-    // {
-    //     to: "/kouryuaku",
-    //     url: '',
-    //     txt: "攻略"
-    // },
+    {
+        to: "/kouryuaku",
+        url: '',
+        txt: "攻略"
+    },
     {
         to: "/about",
         url: '',
@@ -191,6 +191,11 @@ function getVoice(chara,key){
     return '/static/voice/'+chara+'/'+key+'.ogg';
 }
 
+function ranBG(){
+    let random = Math.floor(Math.random()*(80)+1001);
+    return 'url(/static/img/stillunit/still_unit_'+random+'31.png)';
+}
+
 export default {
     naviBtn,
     status_type,
@@ -218,5 +223,6 @@ export default {
     getStoryTopThumb,
     getStoryThumb,
     getGuildStoryThumb,
-    getDungeonThumb
+    getDungeonThumb,
+    ranBG
 }

@@ -1,51 +1,54 @@
 <template>
-<div id="questTable">
-    <table>
-        <td>
-            <button v-on:click="prevQuestArea"> 上一章 </button>
-        </td>
-        <td><h2>{{ areaName }}</h2></td>
-        <td>
-            <button v-on:click="nextQuestArea"> 下一章 </button>
-        </td>
-    </table>
-    <div>
-        <audio :autoplay="'autoplay'" :src="Common.getBGM(bgmid)" :loop="'loop'" />
-        <!--aplayer ref="player" :preload="'none'"
-            :music="Common.getBGMObject(bgmid)" :repeat="Common.rpmode" /-->
-    </div>
-    <div class="clearfixbox">
-        <h2>选择关卡</h2>
-        <div>
-            <div class="clearfix" v-for="(ele,key) in questDic" :key="key">
-                <router-link :to="getrouter(key)">
-                <div class="small_icon64">
-                    <img :src="Common.getMapIcon(ele.icon_id)" />
-                </div>
-                </router-link>
+<div class="inset-container">
+    <div class="section whitebox">
+        <div class="questHeader">
+            <div class="floatbtn">
+                <button @click="prevQuestArea"> 上一章 </button>
+            </div>
+            <h2 class="questName">{{ areaName }}</h2>
+            <div class="floatbtn">
+                <button @click="nextQuestArea"> 下一章 </button>
             </div>
         </div>
-        
-    </div>
-    <h2>关卡详细信息</h2>
-    <div class="clearfixbox">
-        <div class="clearfix">
-            <button v-on:click="prevQuest">上一关prev</button>
+        <div>
+            <audio :autoplay="'autoplay'" :src="Common.getBGM(bgmid)" :loop="'loop'" />
+            <!--aplayer ref="player" :preload="'none'"
+                :music="Common.getBGMObject(bgmid)" :repeat="Common.rpmode" /-->
         </div>
-        <quest-detail-table
-            :quest-data = questDic[questid]
-            :rankRewardData = rankRewardData
-            :clearRewardData = clearRewardData
-            :mainRewardData = mainRewardData
-            :enemyImg = enemyImg
-            :enemyDic = enemyDic
-        />
-        <div class="clearfix">
-            <button v-on:click="nextQuest">下一关next</button>
+        <div class="clearfixbox">
+            <h3>选择关卡</h3>
+            <div>
+                <div class="clearfix" v-for="(ele,key) in questDic" :key="key">
+                    <router-link :to="getrouter(key)">
+                    <div class="small_icon64">
+                        <img :src="Common.getMapIcon(ele.icon_id)" />
+                    </div>
+                    </router-link>
+                </div>
+            </div>
         </div>
+        <h3>关卡详细信息</h3>
+        <div class="questBox">
+            <div class="floatbtn" @click="prevQuest">
+                <span>上一关prev</span>
+            </div>
+            <quest-detail-table
+                :quest-data = questDic[questid]
+                :rankRewardData = rankRewardData
+                :clearRewardData = clearRewardData
+                :mainRewardData = mainRewardData
+                :enemyImg = enemyImg
+                :enemyDic = enemyDic
+            />
+            <div class="floatbtn" @click="nextQuest">
+                <span>下一关next</span>
+            </div>
+        </div>
+        <h3>敌人详情</h3>
+        <quest-wave-table :wavegroup="waveGroup" :wave-dic="waveDic" :enemyDic="enemyDic"/>
+        <h3>掉落详情</h3>
+        <quest-drop-table :dropGroup="dropGroup" :dropDic="dropDic" />
     </div>
-    <quest-wave-table :wavegroup="waveGroup" :wave-dic="waveDic" :enemyDic="enemyDic"/>
-    <quest-drop-table :dropGroup="dropGroup" :dropDic="dropDic" />
 </div>
 </template>
 
@@ -252,5 +255,39 @@ export default {
 </script>
 
 <style lang="scss">
+.questHeader {
+    text-align: center;
+    line-height: 50px;
 
+    .questName{
+        display: inline-block;
+    }
+
+    .floatbtn{
+        display: inline-block;
+
+        button {
+            width: 100px;
+        }
+        
+    }
+}
+
+.questBox{
+    display: block;
+    text-align: center;
+    margin: 10px 0;
+
+    .floatbtn{
+        display: inline-block;
+        vertical-align: top;
+        background: grey;
+        width: 100px;
+        line-height: 400px;
+
+        span {
+            display: inline-block;
+        }
+    }
+}
 </style>

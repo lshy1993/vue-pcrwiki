@@ -1,26 +1,28 @@
 <template>
-<div>
-    <audio controls="controls" :src="Common.getBGM('bgm_title_main_1')" :loop="'loop'" />
-    <login-bonus />
-    <count-down-box :date="date"/>
-    <!--div id="mywidget"></div-->
-    <h2>活动</h2>
-    <div class="clearfixbox">
-        <event-quest :eventData="currentEvent" :date="date"/> 
-    </div>
-    <h2>公会战</h2>
-    <div class="clearfixbox">
-        <clan-quest v-if="currentClan.period != undefined" :clanData="currentClan" :is-next="false" :date="date" />
-        <clan-quest v-if="nextClan.period != undefined" :clanData="nextClan" :is-next="true" :date="date" /> 
-    </div>
-    <h2>加成</h2>
-    <div class="clearfixbox">
-        <event-campaign v-if="currentCampaign.length != 0" :campaignData="currentCampaign" :is-next="false" :date="date" />
-        <event-campaign v-if="nextCampaign.length != 0" :campaignData="nextCampaign" :is-next="true" :date="date" />
-    </div>
-    <h2>扭蛋卡池</h2>
-    <div class="clearfixbox">
-        <event-gacha v-for="(ele,key) in gachaData" :key="key" :gachaData="ele" :date="date" />
+<div class="inset-container">
+    <div class="section whitebox" style="position:relative">
+        <audio controls="controls" :src="Common.getBGM('bgm_title_main_1')" :loop="'loop'" />
+        <login-bonus />
+        <count-down-box :date="date"/>
+        <!--div id="mywidget"></div-->
+        <h2>活动</h2>
+        <div class="clearfixbox">
+            <event-quest :eventData="currentEvent" :date="date"/> 
+        </div>
+        <h2>公会战</h2>
+        <div class="clearfixbox">
+            <clan-quest v-if="currentClan.period != undefined" :clanData="currentClan" :is-next="false" :date="date" />
+            <clan-quest v-if="nextClan.period != undefined" :clanData="nextClan" :is-next="true" :date="date" /> 
+        </div>
+        <h2>加成</h2>
+        <div class="clearfixbox">
+            <event-campaign v-if="currentCampaign.length != 0" :campaignData="currentCampaign" :is-next="false" :date="date" />
+            <event-campaign v-if="nextCampaign.length != 0" :campaignData="nextCampaign" :is-next="true" :date="date" />
+        </div>
+        <h2>扭蛋卡池</h2>
+        <div class="clearfixbox">
+            <event-gacha v-for="(ele,key) in gachaData" :key="key" :gachaData="ele" :date="date" />
+        </div>
     </div>
 </div>
 </template>

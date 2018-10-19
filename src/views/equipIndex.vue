@@ -1,7 +1,8 @@
 <template>
-    <div>
+<div class="inset-container">
+    <div class="section whitebox">
         <div>过滤器</div>
-        <div class="clearfixbox">
+        <div class="warpbox clearfixbox">
             <div class="clearfix" v-for="(equip,key) in equipDic" v-bind:key="key">
                 <router-link :to="getrouter(key)">
                     <div class="small_icon90">
@@ -9,8 +10,9 @@
                     </div>
                 </router-link>
             </div>
-	    </div> 
+        </div>
     </div>
+</div>
 </template>
 
 <script>
@@ -49,3 +51,9 @@ export default {
 	}
 }    
 </script>
+
+<style lang="scss">
+    .warpbox {
+        margin: auto;
+    }
+</style>

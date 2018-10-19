@@ -1,14 +1,16 @@
 <template>
-<div>
-    <button v-for="(tab,key) in tabs" v-bind:key="key"
-        v-bind:class="['tab-button', { active: currentTab === tab.conponame }]"
-        v-on:click="currentTab = tab.conponame">
-        {{ tab.cn }}
-    </button>
+<div class="inset-container">
     <audio :autoplay="'autoplay'" :src="Common.getBGM('bgm_M06')" :loop="'loop'" controls="controls"/>
-    <keep-alive>
-        <component v-bind:is="currentTabComponent" class="tab"></component>
-    </keep-alive>
+    <div class="section whitebox">
+        <button v-for="(tab,key) in tabs" v-bind:key="key"
+            v-bind:class="['tab-button', { active: currentTab === tab.conponame }]"
+            v-on:click="currentTab = tab.conponame">
+            {{ tab.cn }}
+        </button>
+        <keep-alive>
+            <component v-bind:is="currentTabComponent" class="tab"></component>
+        </keep-alive>
+    </div>
 </div>
 </template>
 

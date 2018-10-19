@@ -1,67 +1,66 @@
 <template>
-<div id="questWaveTable">
-    <h2>波次敌人详情</h2>
-        <table>
-            <tr v-for="i in 3" :key="i">
-                <th>第{{i}}/3波<th/>
-                <td v-for="j in 5" :key="j">
-                    <div class="cursor clearfix small_icon64" v-on:click="setEnemyId(i,j)">
-                        <img style="width:100%" :src="getEnemyImg(i,j)" />
-                    </div>
-                </td>
-            </tr>
-        </table>
-            <table id="enemyDetailTable">
-                <tr>
-                    <td colspan="2">{{ enemyData.name }}</td>
-                    <th>等级</th>
-                    <td>{{ enemyData.level }}</td>
-                    <th>命中率</th>
-                    <td>{{ enemyData.accuracy }}</td>
-                    <th>Rank</th>
-                    <td>{{ enemyData.promotion_level }}</td>
-                </tr>
-                <tr>
-                    <th>HP</th>
-                    <td>{{ enemyData.hp }}</td>
-                    <th>HP回复量</th>
-                    <td>{{ enemyData.hp_recovery_rate }}</td>
-                    <th>物攻</th>
-                    <td>{{ enemyData.atk }}</td>
-                    <th>魔攻</th>
-                    <td>{{ enemyData.magic_str }}</td>
-                </tr>
-                <tr>
-                    <th>吸血</th>
-                    <td>{{ enemyData.life_steal }}</td>
-                    <th>闪避</th>
-                    <td>{{ enemyData.dodge }}</td>
-                    <th>物防</th>
-                    <td>{{ enemyData.def }}</td>
-                    <th>魔防</th>
-                    <td>{{ enemyData.magic_def }}</td>
-                </tr>
-                <tr>
-                    <th>TP回复量</th>
-                    <td>{{ enemyData.energy_recovery_rate }}</td>
-                    <th>TP消耗减少</th>
-                    <td>{{ enemyData.energy_reduce_rate }}</td>
-                    <th>物理暴击</th>
-                    <td>{{ enemyData.physical_critical }}</td>
-                    <th>法术暴击</th>
-                    <td>{{ enemyData.magic_critical }}</td>
-                </tr>
-                <tr>
-                    <th>HP每回合回复</th>
-                    <td>{{ enemyData.wave_hp_recovery }}</td>
-                    <th>TP每回合回复</th>
-                    <td>{{ enemyData.wave_energy_recovery }}</td>
-                    <th>物理穿透</th>
-                    <td>{{ enemyData.physical_penetrate }}</td>
-                    <th>法术穿透</th>
-                    <td>{{ enemyData.magic_penetrate }}</td>
-                </tr>
-            </table>
+<div style="margin-top: 10px;">
+    <table id="questWaveTable">
+        <tr v-for="i in 3" :key="i">
+            <th>第{{i}}/3波<th/>
+            <td v-for="j in 5" :key="j">
+                <div class="cursor clearfix small_icon64" v-on:click="setEnemyId(i,j)">
+                    <img style="width:100%" :src="getEnemyImg(i,j)" />
+                </div>
+            </td>
+        </tr>
+    </table>
+    <table id="enemyDetailTable">
+        <tr>
+            <td colspan="2">{{ enemyData.name }}</td>
+            <th>等级</th>
+            <td>{{ enemyData.level }}</td>
+            <th>命中率</th>
+            <td>{{ enemyData.accuracy }}</td>
+            <th>Rank</th>
+            <td>{{ enemyData.promotion_level }}</td>
+        </tr>
+        <tr>
+            <th>HP</th>
+            <td>{{ enemyData.hp }}</td>
+            <th>HP回复量</th>
+            <td>{{ enemyData.hp_recovery_rate }}</td>
+            <th>物攻</th>
+            <td>{{ enemyData.atk }}</td>
+            <th>魔攻</th>
+            <td>{{ enemyData.magic_str }}</td>
+        </tr>
+        <tr>
+            <th>吸血</th>
+            <td>{{ enemyData.life_steal }}</td>
+            <th>闪避</th>
+            <td>{{ enemyData.dodge }}</td>
+            <th>物防</th>
+            <td>{{ enemyData.def }}</td>
+            <th>魔防</th>
+            <td>{{ enemyData.magic_def }}</td>
+        </tr>
+        <tr>
+            <th>TP回复量</th>
+            <td>{{ enemyData.energy_recovery_rate }}</td>
+            <th>TP消耗减少</th>
+            <td>{{ enemyData.energy_reduce_rate }}</td>
+            <th>物理暴击</th>
+            <td>{{ enemyData.physical_critical }}</td>
+            <th>法术暴击</th>
+            <td>{{ enemyData.magic_critical }}</td>
+        </tr>
+        <tr>
+            <th>HP每回合回复</th>
+            <td>{{ enemyData.wave_hp_recovery }}</td>
+            <th>TP每回合回复</th>
+            <td>{{ enemyData.wave_energy_recovery }}</td>
+            <th>物理穿透</th>
+            <td>{{ enemyData.physical_penetrate }}</td>
+            <th>法术穿透</th>
+            <td>{{ enemyData.magic_penetrate }}</td>
+        </tr>
+    </table>
 </div>
 </template>
 
@@ -166,24 +165,31 @@ export default {
 </script>
 
 <style lang="scss">
-    .cursor{
-        cursor: pointer;
+#questWaveTable{
+    
+    text-align: center;
+    margin: 0 auto;
+}    
+.cursor{
+    cursor: pointer;
+}
+#enemyDetailTable {
+    text-align: center;
+    margin: 0 auto;
+    border: solid #000 1px;
+    border-radius: 10px;
+    //font-size: 14px;
+    th {
+        text-align: left;
+        color: white;
+        background: #212529;
+        padding: 5px;
     }
-    #enemyDetailTable {
-        border: solid #000 1px;
-        border-radius: 10px;
-        //font-size: 14px;
-        th {
-            text-align: left;
-            color: white;
-            background: #212529;
-            padding: 5px;
-        }
-        td{
-            width: 50px;
-            text-align: right;
-            padding: 5px;
-        }
+    td{
+        width: 50px;
+        text-align: right;
+        padding: 5px;
     }
+}
 
 </style>

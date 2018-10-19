@@ -48,6 +48,7 @@ import TrainIndex from './views/TrainIndex.vue';
 import DungeonTable from './views/dungeonTable.vue'; 
 import ClanIndex from './views/clanindex.vue';
 import Mission from './views/mission.vue';
+import DownLoad from './views/download.vue';
 import About from './views/about.vue';
 
 //路由信息
@@ -66,6 +67,7 @@ const routes = [
     { path: '/equip/:id', component: EquipTable },
     { path: '/mission', component: Mission },
     { path: '/clan', component: ClanIndex },
+    { path: '/download', component: DownLoad },
     { path: '/about', component: About }
 ]
 

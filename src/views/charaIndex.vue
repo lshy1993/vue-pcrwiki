@@ -1,5 +1,6 @@
 <template>
-<div>
+<div class="inset-container">
+    <div class="section whitebox">
     <button v-for="(tab,key) in tabs" v-bind:key="key"
         v-bind:class="['tab-button', { active: currentTab === tab.conponame }]"
         v-on:click="currentTab = tab.conponame">
@@ -8,6 +9,7 @@
     <keep-alive>
         <component v-bind:is="currentTabComponent" v-bind:charaDic="charaDic" class="tab"></component>
     </keep-alive>
+    </div>
 </div>
 </template>
 

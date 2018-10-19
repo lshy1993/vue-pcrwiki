@@ -1,5 +1,6 @@
 <template>
-<div id="storyList">
+<div class="inset-container">
+    <div class="section whitebox">
     <h2>请选择故事</h2>
     <div id="tablist">
         <button v-on:click="mode=2">Main</button>
@@ -42,6 +43,7 @@
             </router-link>
         </div>
 	</div>
+</div>
 </div>
 </template>
 
@@ -108,10 +110,7 @@ export default {
 </script>
 
 <style lang="scss">
-#storyList{
-    padding: 10px;
-
-    .storybox {
+.storybox {
         width: 330px;
         height: 64px;
         border-radius: 10px;
@@ -124,7 +123,4 @@ export default {
         padding: 10px;
         width: 180px;
     }
-}
-
-
 </style>

@@ -31,12 +31,12 @@ export default {
     },
     created(){
         this.getFileList();
-        console.log('d'>'f');
+        //console.log('d'>'f');
     },
     methods:{
         getFileList: function(){
             //var url = "localhost:3000/pcr/file/";
-            var url = "api.liantui.moe/file/pcr/";
+            var url = "//api.liantui.moe/file/pcr/";
             for(var pp in this.currentPath){
                 url += this.currentPath[pp] + '/';
             }

@@ -1,15 +1,17 @@
 <template>
-<div id="charaprofilebox">
-    <profile-bar :profile-info="profileInfo" />
-    <div style="height:350" class="clearfixbox">
-        <profile-img :unitid="unitID" />
-        <profile-table :profile-info="profileInfo" />
+<div class="inset-container">
+    <div class="section whitebox">
+        <profile-bar :profile-info="profileInfo" />
+        <div style="height:350;margin:10px;" class="clearfixbox">
+            <profile-img :unitid="unitID" />
+            <profile-table :profile-info="profileInfo" />
+        </div>
+        <battle-table :unitid="unitID" />
+        <battle-patern :unitid="unitID" />
+        <skill-table :unitid="unitID"/>
+        <promotion-table :unitid="unitID" />
+        <chara-voice :unitid="unitID" />
     </div>
-    <battle-table :unitid="unitID" />
-    <battle-patern :unitid="unitID" />
-    <skill-table :unitid="unitID"/>
-    <promotion-table :unitid="unitID" />
-    <chara-voice :unitid="unitID" />
 </div>
 </template>
 

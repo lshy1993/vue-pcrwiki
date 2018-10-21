@@ -12,7 +12,7 @@
                     <img class="thumb" :style="{'backgroundImage':nextPath}" />
                 </div>
             </div>
-            <router-link :to="'download'" class="topFuncBtn">资源下载</router-link>
+            <router-link :to="'/download'" class="topFuncBtn">资源下载</router-link>
             <div class="topFuncBtn">
                 语言/言語/Language
                 <select>

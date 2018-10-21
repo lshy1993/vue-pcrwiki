@@ -26,7 +26,7 @@ export default {
 
 <style lang="scss">
 #profileImage {
-    margin: 10px;
+    //margin: 10px;
     position: relative;
     width: 600px;
 

@@ -5,7 +5,7 @@
         <div class="clanBG">
             <img :src="imgurl" />
         </div>
-        <div class="clanCD clearfixbox" v-if="!isNext">
+        <div class="CountDown clearfixbox" v-if="!isNext">
             <div class="clearfix">
                 <h2>{{ currentPeriodTxt }}</h2>
             </div>

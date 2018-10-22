@@ -3,7 +3,7 @@
     <router-link :to="getrouter">
         <div class="charaplate">
             <div id="stardiv">
-                
+                {{ charaData.rarity }}
             </div>
             <div id="charanamediv">
                 {{ charaName }}
@@ -55,7 +55,6 @@ export default {
 
 <style lang="scss">
 .charaplate{
-
     font-size: 16px;
     font-weight: bolder;
     text-shadow: #000 -1px 0 0,#763c12 0 -1px 0,#5d2b08 1px 0 0,#1d1515 0 1px 0;

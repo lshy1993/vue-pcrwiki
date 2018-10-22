@@ -4,8 +4,8 @@
         <div class="naviTitle">{{ msg }}</div>
         <div class="topFunction">
             <div class="topFuncBtn">
-                <div class="hidehover">背景图</div>
-                <div class="thumbframe">
+                <div class="hidehover" @mouseover="showNxt=true" @mouseout="showNxt=false">背景图</div>
+                <div v-if="showNxt" class="thumbframe">
                     <div :style="{'line-height':'20px'}">
                         <small>下一张：{{ countDown }}</small>
                     </div>
@@ -47,6 +47,7 @@ export default {
         return {
             msg: 'Welcome to PcrWiki!',
             naviBtn: this.Common.naviBtn,
+            showNxt: false,
             nextPath: '',
             countDown: 30,
             timer: Object
@@ -119,8 +120,7 @@ export default {
                 //right: 10px;
             }
         }
-
-                .thumb {
+        .thumb {
             width: 320px;
             height: 180px;
             background-size: 320px 180px;
@@ -128,17 +128,9 @@ export default {
 
         .thumbframe {
             cursor: default;
-        }
-
-        .hidehover + .thumbframe {
             position: fixed;
             text-align: center;
             background: #2e3243;
-            transition: all .3s;
-            opacity: 0;
-        }
-        .hidehover:hover + .thumbframe {
-            opacity: 1;
         }
 
     }

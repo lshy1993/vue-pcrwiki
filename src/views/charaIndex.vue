@@ -1,14 +1,19 @@
 <template>
 <div class="inset-container">
     <div class="section whitebox">
-    <button v-for="(tab,key) in tabs" v-bind:key="key"
-        v-bind:class="['tab-button', { active: currentTab === tab.conponame }]"
-        v-on:click="currentTab = tab.conponame">
-        {{ tab.cn }}
-    </button>
-    <keep-alive>
-        <component v-bind:is="currentTabComponent" v-bind:charaDic="charaDic" class="tab"></component>
-    </keep-alive>
+        <div class="sectionhead">
+            <h2>角色</h2>
+            <div class="righthead">
+                <button v-for="(tab,key) in tabs" v-bind:key="key"
+                    v-bind:class="['tab-button', { active: currentTab === tab.conponame }]"
+                    v-on:click="currentTab=tab.conponame">
+                    {{ tab.cn }}
+                </button>
+            </div>
+        </div>
+        <component v-bind:is="currentTabComponent" v-bind:charaDic="charaDic"></component>
+        <!--keep-alive>
+        </keep-alive-->
     </div>
 </div>
 </template>
@@ -73,5 +78,8 @@ export default {
 </script>
 
 <style lang="scss">
-
+    .tab-button {
+        font-size: 16px;
+        margin: 0 5px;
+    }
 </style>

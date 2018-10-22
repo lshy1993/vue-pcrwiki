@@ -113,11 +113,12 @@ export default {
 
     div.campaignFoot {
         position: absolute;
-        padding: 10px;
+        padding: 5px;
         bottom: 0;
         left: 0;
 
         h2 {
+            padding: 0px;
             margin:0 5px 0 5px;
             font-size: 14px;
         }

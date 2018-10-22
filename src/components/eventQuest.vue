@@ -5,7 +5,7 @@
         <div class="eventBG">
             <img :src="imgurl" />
         </div>
-        <div class="eventCD clearfixbox">
+        <div class="CountDown clearfixbox">
             <div class="clearfix">
                 <h2>{{ currentPeriodTxt }}</h2>
             </div>
@@ -117,19 +117,7 @@ export default {
             height: 288px;
             overflow: hidden;
         }
-        .eventCD {
-            position: absolute;
-            top: 30px;
-            left: 30px;
-            border-radius: 10px;
-            padding: 10px;
-            background: rgba(255,255,255,0.7);
-
-            h2 {
-                margin:0 10px 0 10px;
-                font-size: 24px;
-            }
-        }
+        
         .eventInfo {
             //width: 412px;
             position: absolute;

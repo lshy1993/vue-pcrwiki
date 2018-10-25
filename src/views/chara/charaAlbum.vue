@@ -1,11 +1,10 @@
 <template>
 <div id="charaAlbum">
     <chara-filter v-on:filter="listenProps"/>
-    <div class="clearfixbox">
-        <transition-group name="flip-list" tag="div" class="container">
-            <chara-plate-img v-for="ele in charaShowDic" :key="ele.unit_id" :charaData="ele" />
-        </transition-group>
-    </div>
+    <div class="clearfixbox"></div>
+    <transition-group name="flip-list" tag="div" class="container">
+        <chara-plate-img v-for="ele in charaShowDic" :key="ele.unit_id" :charaData="ele" />
+    </transition-group>
 </div>
 </template>
 

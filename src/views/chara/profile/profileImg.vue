@@ -15,7 +15,8 @@ export default {
     computed:{
         imgurl: function(){
             var imgid = parseInt(this.unitid)+30;
-            return "/static/img/stillunit/still_unit_" +imgid+ ".png";
+            return this.Common.getStillUnit(imgid);
+            //return "/static/img/stillunit/still_unit_" +imgid+ ".png";
         }
     },
     created: function(){

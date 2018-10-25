@@ -172,6 +172,10 @@ function getDungeonThumb(key){
     return '/static/img/icondungeon/AtlasDungeon_'+key+'.png';
 }
 
+function getStillUnit(key){
+    return "/static/img/stillunit/still_unit_" +key+ ".png";
+}
+
 function getBGM(key){
     return '/static/bgm/'+key+'.ogg';
 }
@@ -193,6 +197,13 @@ function getVoice(chara,key){
 function ranBG(){
     let random = Math.floor(Math.random()*(80)+1001);
     return 'url(/static/img/stillunit/still_unit_'+random+'31.png)';
+}
+function changeByte(bytes){
+    var sizes = ['Bytes', 'KB', 'MB'];
+    if (bytes == 0) return '0 Byte';
+    var i = parseInt(Math.floor(Math.log(bytes)/Math.log(1024)));
+    return (bytes / Math.pow(1024, i)).toFixed(2) + ' ' + sizes[i];
+    //return btsize/1024;
 }
 
 export default {
@@ -218,10 +229,12 @@ export default {
     getEquipIcon,
     getVoice,
     getBGMObject,
+    getStillUnit,
     getBGM,
     getStoryTopThumb,
     getStoryThumb,
     getGuildStoryThumb,
     getDungeonThumb,
-    ranBG
+    ranBG,
+    changeByte
 }

@@ -208,4 +208,17 @@ body {
     .flip-list-leave-active {
         position: absolute;
     }
+    .filewrap {
+        flex-wrap: wrap;
+        display: flex;
+    
+        .fileplate {
+            margin: 5px;
+        }
+
+        .filename {
+            display: block;
+            text-align: center;
+        }
+    } 
 }

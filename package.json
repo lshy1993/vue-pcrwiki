@@ -26,6 +26,7 @@
     "vue-aplayer": "^1.6.1",
     "vue-axios": "^2.1.2",
     "vue-loader": "^14.2.2",
+    "vue-moment": "^4.0.0",
     "vue-resource": "^1.5.1",
     "vue-router": "^3.0.1",
     "vuejs-sqljs-boilerplate": "^0.1.0"

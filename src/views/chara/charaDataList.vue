@@ -23,7 +23,7 @@
             </tr>
         </thead>
         <transition-group name="flip-list" tag="tbody">
-            <tr v-for="(ele,key) in charaShowDic" :key="ele.unit_id">
+            <tr v-for="ele in charaShowDic" :key="ele.unit_id">
                 <th>
                     <router-link :to="getrouter(ele.unit_id)">
                         <div class="small_icon">

@@ -33,7 +33,7 @@ export default {
 	watch: {
 		unitid: function(){
 			//检测到传入的unitid变动重新获取数据库
-			this.loadDate();
+			this.loadData();
 		}
 	},
 	methods: {

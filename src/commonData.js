@@ -160,7 +160,6 @@ function getEquipIcon(key){
 function getStoryTopThumb(key){
     return '/static/img/thumbstorytop/thumb_chara_story_top_'+key+'.png';
 }
-
 function getStoryThumb(key){
     return '/static/img/thumbstory/thumb_story_'+key+'.png';
 }

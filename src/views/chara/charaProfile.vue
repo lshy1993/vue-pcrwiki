@@ -52,12 +52,6 @@ export default {
             this.$http.get("http://api.liantui.xyz/pcr/profile/"+this.unitID).then((response)=>{
                 this.profileInfo = response.data[0];
             });
-			//var result = this.Common.db.prepare("SELECT * FROM unit_profile WHERE unit_id = " + this.unitID);
-			// while(result.step()){
-			// 	this.profileInfo = result.getAsObject();
-			// }
-			// //释放
-			// result.free();
         }
 	},
     components: {

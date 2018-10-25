@@ -47,8 +47,6 @@ export default {
             this.$http.get("http://api.liantui.xyz/pcr/atkpattern/"+this.unitid).then((response)=>{
                 this.setPatternData(response.data);
             });
-            // var result = this.Common.prepare("SELECT * FROM unit_attack_pattern WHERE unit_id = "+this.unitid);
-            // this.setPatternData(result);
         },
         setPatternData: function(result){
             var ele = result[0];

@@ -1,39 +1,55 @@
 <template>
 <div class="inset-container">
     <div class="section whitebox">
-        <div>过滤器</div>
-        <div class="warpbox clearfixbox">
-            <div class="clearfix" v-for="(equip,key) in equipDic" v-bind:key="key">
-                <router-link :to="getrouter(key)">
+        <h2>装备</h2>
+        <equip-filter v-on:filter="listenProps" />
+        <transition-group name="flip-list" tag="div" class="warpbox clearfixbox">
+            <div class="clearfix" v-for="ele in equipShowDic" v-bind:key="ele.equipment_id">
+                <router-link :to="getrouter(ele.equipment_id)">
                     <div class="small_icon90">
-                        <img :src="Common.getEquipIcon(key)" />
+                        <img :src="Common.getEquipIcon(ele.equipment_id)" />
                     </div>
                 </router-link>
             </div>
-        </div>
+        </transition-group>
     </div>
 </div>
 </template>
 
 <script>
+import EquipFilter from '@/components/equipFilter.vue';
 export default {
     name: 'EquiptIndex',
     data(){
         return{
-            equipDic: {}
+            equipDic: {},
+            filter: {},
         }
     },
     created: function(){
         this.loadData();
-        console.log("mlist");
+    },
+    computed:{
+        equipShowDic: function () {
+            var result = [];
+            for(var key in this.equipDic){
+                let ele = this.equipDic[key];
+                result.push(ele);
+            }
+            result = result.filter(this.checkPromo);
+            result = result.filter(this.checkFlag);
+            return result;
+        }
     },
     methods:{
+        listenProps: function(childValue){
+            console.log('from child');
+            this.filter = childValue;
+        },
         loadData: function(){
             this.$http.get("http://api.liantui.xyz/pcr/equip").then((response)=>{
                 this.setEquipDic(response.data);
             });
-			// var result = this.Common.db.prepare("SELECT * FROM equipment_data");
-            // this.setEquipDic(result);
         },
         setEquipDic: function(result){
             var dd = {};
@@ -44,11 +60,22 @@ export default {
             }
             this.equipDic = dd;
         },
+        checkPromo: function(ele){
+            if(this.filter.plv == -1) return true;
+            return ele.promotion_level == this.filter.plv;
+        },
+        checkFlag: function(ele){
+            if(this.filter.flag == -1) return true;
+            return ele.craft_flg == this.filter.flag;
+        },
         getrouter: function(key) {
             //改为路由跳转
             return '/equip/' + key;
         }
-	}
+    },
+    components:{
+        EquipFilter
+    }
 }    
 </script>
 

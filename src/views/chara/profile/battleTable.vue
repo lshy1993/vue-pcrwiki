@@ -232,80 +232,22 @@ export default {
                 this.setUnitExp(response.data.UnitExp);
                 this.setUnitLove(response.data.UnitLove);
 			});
-
-			// this.$http.get("http://api.liantui.xyz/pcr", { params: {table: 'equipment_data'}}).then((response)=>{
-            //     this.setEquip(response.data);
-			// });
-			// this.$http.get("http://api.liantui.xyz/pcr", { params: {table: 'equipment_enhance_rate'}}).then((response)=>{
-            //     this.setEquipRate(response.data);
-			// });
-			// this.$http.get("http://api.liantui.xyz/pcr", { params: {table: 'experience_unit'}}).then((response)=>{
-            //     this.setUnitExp(response.data);
-			// });
-			// this.$http.get("http://api.liantui.xyz/pcr", { params: {table: 'love_chara'}}).then((response)=>{
-            //     this.setUnitLove(response.data);
-			// });
-			
-			// var result = this.Common.db.prepare("SELECT * FROM equipment_data");
-			// this.setEquip(result);
-			// result = this.Common.db.prepare("SELECT * FROM equipment_enhance_rate");
-			// this.setEquipRate(result);
-			// result = this.Common.db.prepare("SELECT * FROM experience_unit");
-			// this.setUnitExp(result);
-			// result = this.Common.db.prepare("SELECT * FROM love_chara");
-			// this.setUnitLove(result);
-
 			this.loadDate();
 		},
 		loadDate: function(){
 			//根据uintid每次重新获取的部分
-			// this.$http.get("http://api.liantui.xyz/pcr/battle/"+this.unitid).then((response)=>{
-            //     this.setData(response.data.Data);
-            //     this.setRarity(response.data.Rarity);
-            //     this.setPromotion(response.data.Promotion);
-			// 	this.setPromotionStatus(response.data.PromotionStatus);
-			// 	this.setLoveStory(response.data.LoveStory);
-			// 	this.setBattleInfo();
-			// });
-
-			this.$http.get("http://api.liantui.xyz/pcr/data/"+this.unitid).then((response)=>{
-				this.setData(response.data);
-				this.$http.get("http://api.liantui.xyz/pcr/rarity/"+this.unitid).then((response)=>{
-					this.setRarity(response.data);
-					this.$http.get("http://api.liantui.xyz/pcr/promotion/"+this.unitid).then((response)=>{
-						this.setPromotion(response.data);
-						this.$http.get("http://api.liantui.xyz/pcr/promotionstatus/"+this.unitid).then((response)=>{
-							this.setPromotionStatus(response.data);
-							this.$http.get("http://api.liantui.xyz/pcr/charastory/"+this.unitid).then((response)=>{
-								this.setLoveStory(response.data);
-							});
-						});
-					});
-				});
+			this.$http.get("http://api.liantui.xyz/pcr/battle/"+this.unitid).then((response)=>{
+                this.setData(response.data.Data);
+                this.setRarity(response.data.Rarity);
+                this.setPromotion(response.data.Promotion);
+				this.setPromotionStatus(response.data.PromotionStatus);
+				this.setLoveStory(response.data.LoveStory);
+				this.setBattleInfo();
 			});
-
-			// var result = this.Common.prepare("SELECT * FROM unit_data WHERE unit_id = "+ this.unitid);
-			// this.setData(result);
-			// result = this.Common.prepare("SELECT * FROM unit_rarity WHERE unit_id = "+ this.unitid);
-			// this.setRarity(result);
-			// result = this.Common.prepare("SELECT * FROM unit_promotion WHERE unit_id = "+ this.unitid);
-			// this.setPromotion(result);
-			// result = this.Common.prepare("SELECT * FROM unit_promotion_status WHERE unit_id = "+ this.unitid);
-			// this.setPromotionStatus(result);
-
-			// let char_id = parseInt(this.unitid/100);
-			// result = this.Common.prepare("SELECT * FROM chara_story_status WHERE chara_id_1 = "+ char_id);
-			// this.setLoveStory(result);
-			//this.setBattleInfo();
 		},
 		setData: function(result){
 			this.charaData = result[0];
 			return;
-			// while(result.step()){
-			// 	this.charaData = result.getAsObject();
-			// 	result.free();
-			// 	return;
-			// }
 		},
 		setRarity: function(result){
 			//获取星级信息

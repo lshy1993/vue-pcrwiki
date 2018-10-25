@@ -19,7 +19,7 @@
         </div>
 	</div> 
     <div v-if="mode==0">
-        <div>过滤器制作中。。。</div>
+        <chara-filter v-on:filter="listenProps"/>
         <div class="clearfix" v-for="(ele,key) in charaStoryDic" :key="key">
             <router-link :to="getrouter(key)">
                 <div class="storybox clearfixbox">
@@ -48,6 +48,7 @@
 </template>
 
 <script>
+import charaFilter from '@/components/charaFilter.vue';
 export default {
     name: 'StoryIndex',
     data(){
@@ -57,19 +58,21 @@ export default {
             mainStoryDic: {},
             guildStoryDic: {},
             eventStoryDic: {},
+            filter: {}
         }
     },
     created(){
         this.loadData();
     },
     methods:{
+        listenProps: function(childValue){
+            console.log('from child');
+            this.filter = childValue;
+        },
         loadData: function (params) {
             this.$http.get("http://api.liantui.xyz/pcr/story").then((response)=>{
                 this.setStoryList(response.data);
 			});
-            // var result = this.Common.db.prepare("SELECT * FROM story_data");
-            // this.setStoryList(result);
-
         },
         setStoryList: function(result){
             var charas = {};
@@ -105,22 +108,27 @@ export default {
             return this.Common.getStoryTopThumb(charaid);
         },
     },
+    components:{
+        charaFilter
+    }
 }
 
 </script>
 
 <style lang="scss">
 .storybox {
-        width: 330px;
-        height: 64px;
-        border-radius: 10px;
-        overflow: hidden;
-        margin: 10px;
-        background: white;
-    }
-
+    width: 330px;
+    height: 64px;
+    border-radius: 10px;
+    box-shadow: 1px;
+    overflow: hidden;
+    margin: 10px;
+    background: white;
+        
     .storyinfo{
         padding: 10px;
         width: 180px;
     }
+}
+
 </style>

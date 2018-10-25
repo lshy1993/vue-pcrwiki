@@ -1,11 +1,10 @@
 <template>
-    <div id="equipTable">
-        <h2>基本信息</h2>
-        <span>{{ equipData.equipment_name }}</span>
-        <p/>
-        <table>
+<div class="inset-container">
+    <div class="section whitebox">
+        <h2>{{ equipData.equipment_name }}</h2>
+        <table class="equipInfo">
             <tr>
-                <td rowspan="4">
+                <td rowspan="2">
                     <img :src="imgpath" />
                 </td>
                 <th colspan="4">描述</th>
@@ -33,6 +32,7 @@
         <equip-craft :equip-craft="equipCraft"/>
         <equip-drop :equipid="equipid" />
     </div>
+</div>
 </template>
 
 <script>
@@ -85,59 +85,12 @@ export default {
     },
     methods: {
         loadData: function(){
-
-            // this.$http.get("http://api.liantui.xyz/pcr", { params: {table: 'equipment_data', condition:"equipment_id = "+this.equipid }}).then((response)=>{
-            //     this.equipData = response.data[0];
-            //     //this.setEquipData(response.data);
-            // });
-            // this.$http.get("http://api.liantui.xyz/pcr", { params: {table: 'equipment_enhance_rate', condition:"equipment_id = "+this.equipid }}).then((response)=>{
-            //     this.equipRate = response.data[0];
-            //     //this.setEquipRate(response.data);
-            // });
-            // this.$http.get("http://api.liantui.xyz/pcr", { params: {table: 'equipment_craft', condition:"equipment_id = "+this.equipid }}).then((response)=>{
-            //     this.equipCraft = response.data[0];
-            //     //this.setEquipCraft(response.data);
-            // });
-            // this.$http.get("http://api.liantui.xyz/pcr", { params: {table: 'equipment_enhance_data' }}).then((response)=>{
-            //     this.setEquipEhance(response.data);
-            // });
-            
             this.$http.get("http://api.liantui.xyz/pcr/equip/"+this.equipid).then((response)=>{
                 this.equipData = response.data.EquipData;
                 this.equipRate = response.data.EquipRate;
                 this.equipCraft = response.data.EquipCraft;
                 this.setEquipEhance(response.data.EquipEnhance);
             });
-
-            // var db = this.Common.db;
-			// var result = db.prepare("SELECT * FROM equipment_data WHERE equipment_id = "+this.equipid);
-            // this.setEquipData(result);
-            // result = db.prepare("SELECT * FROM equipment_enhance_rate WHERE equipment_id = "+this.equipid);
-            // this.setEquipRate(result);
-            // result = db.prepare("SELECT * FROM equipment_craft WHERE equipment_id = "+this.equipid);
-            // this.setEquipCraft(result);
-            // result = db.prepare("SELECT * FROM equipment_enhance_data");
-            // this.setEquipEhance(result);
-
-        },
-        setEquipData: function(result){
-            this.equipData = result[0];
-
-            while(result.step()){
-                this.equipData = result.getAsObject();
-            }
-        },
-        setEquipRate: function(result){
-            while(result.step()){
-                this.equipRate = result.getAsObject();
-            }
-        },
-        setEquipCraft: function(result){
-            var dd = {};
-            for(var id in result){
-                dd = result[id];
-            }
-            this.equipCraft = dd;
         },
         setEquipEhance: function(result){
             var dd = {};
@@ -161,14 +114,17 @@ export default {
 </script>
 
 <style lang="scss">
-#equipTable {
-    table{
-        border: 1px solid black;
-        border-collapse: collapse;
-        border-spacing: 0;
-        th,td{
-            border: 1px solid black;
-        }
+
+    .equipInfo {
+        margin: 0 auto;
     }
-}
+    // table {
+    //     border: 1px solid black;
+    //     border-collapse: collapse;
+    //     border-spacing: 0;
+    //     th,td{
+    //         border: 1px solid black;
+    //     }
+    // }
+
 </style>

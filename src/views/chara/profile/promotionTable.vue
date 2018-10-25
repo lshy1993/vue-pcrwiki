@@ -34,15 +34,11 @@ export default {
 	    }
     },
     methods:{
-        loadData: function(){            
-            console.log('LOAD unit_promotion');
-            //var result = this.Common.prepare("SELECT * FROM unit_promotion WHERE unit_id = "+ this.unitid);
-
-            this.$http.get("http://api.liantui.xyz/pcr/promotion/"+this.unitid).then((response)=>{
+        loadData: function(){
+            console.log('LOAD unit_promotion'+this.unitid);
+            this.$http.get("//api.liantui.xyz/pcr/promotion/"+this.unitid).then((response)=>{
                 this.setPromotionList(response.data);
             });
-            //this.setPromotionList(result);
-
         },
 		setPromotionList: function(result){
             var dd = {};

@@ -1,12 +1,12 @@
 <template>
-    <div id="charaAlbum">
-        <chara-filter v-on:filter="listenProps"/>
-        <div class="clearfixbox">
-            <transition-group name="flip-list" tag="div" class="container">
-                <chara-plate-img v-for="(ele,key) in charaShowDic" :key="ele.unit_id" :charaData="ele" />
-            </transition-group>
-        </div>
+<div id="charaAlbum">
+    <chara-filter v-on:filter="listenProps"/>
+    <div class="clearfixbox">
+        <transition-group name="flip-list" tag="div" class="container">
+            <chara-plate-img v-for="ele in charaShowDic" :key="ele.unit_id" :charaData="ele" />
+        </transition-group>
     </div>
+</div>
 </template>
 
 <script>
@@ -70,18 +70,6 @@ export default {
 </script>
 
 <style lang="scss">
-.flip-list-move {
-    transition: transform 1s;
-}
-.flip-list-enter, .flip-list-leave-to {
-    opacity: 0;
-    transform: translateX(30px);
-    //transform: translateY(30px);
-}
-.flip-list-leave-active {
-    position: absolute;
-}
-
 #charaAlbum {
     //font-family: "Avenir", Helvetica, Arial, sans-serif;
     .container {

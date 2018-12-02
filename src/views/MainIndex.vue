@@ -2,26 +2,32 @@
 <div class="inset-container">
     <div class="section whitebox" style="position:relative">
         <audio controls="controls" :src="Common.getBGM('bgm_title_main_1')" :loop="'loop'" />
-        <login-bonus />
-        <count-down-box :date="date"/>
+        <div id="mainIndexBox">
+            <div class="indexLeft">
+                <!--h2>活动</h2-->
+                <div class="clearfixbox">
+                    <event-quest :eventData="currentEvent" :date="date"/> 
+                </div>
+                <!--h2>公会战</h2-->
+                <div class="clearfixbox">
+                    <clan-quest v-if="currentClan.period != undefined" :clanData="currentClan" :is-next="false" :date="date" />
+                    <clan-quest v-if="nextClan.period != undefined" :clanData="nextClan" :is-next="true" :date="date" /> 
+                </div>
+                <!--h2>加成</h2-->
+                <div class="clearfixbox">
+                    <event-campaign v-if="currentCampaign.length != 0" :campaignData="currentCampaign" :is-next="false" :date="date" />
+                    <event-campaign v-if="nextCampaign.length != 0" :campaignData="nextCampaign" :is-next="true" :date="date" />
+                </div>
+                <!--h2>扭蛋卡池</h2-->
+                <div class="clearfixbox">
+                    <event-gacha v-for="(ele,key) in gachaData" :key="key" :gachaData="ele" :date="date" />
+                </div>
+            </div>
+            <div class="indexRight">
+                <count-down-box :date="date"/>
+                <login-bonus />
+            </div>
         <!--div id="mywidget"></div-->
-        <h2>活动</h2>
-        <div class="clearfixbox">
-            <event-quest :eventData="currentEvent" :date="date"/> 
-        </div>
-        <h2>公会战</h2>
-        <div class="clearfixbox">
-            <clan-quest v-if="currentClan.period != undefined" :clanData="currentClan" :is-next="false" :date="date" />
-            <clan-quest v-if="nextClan.period != undefined" :clanData="nextClan" :is-next="true" :date="date" /> 
-        </div>
-        <h2>加成</h2>
-        <div class="clearfixbox">
-            <event-campaign v-if="currentCampaign.length != 0" :campaignData="currentCampaign" :is-next="false" :date="date" />
-            <event-campaign v-if="nextCampaign.length != 0" :campaignData="nextCampaign" :is-next="true" :date="date" />
-        </div>
-        <h2>扭蛋卡池</h2>
-        <div class="clearfixbox">
-            <event-gacha v-for="(ele,key) in gachaData" :key="key" :gachaData="ele" :date="date" />
         </div>
     </div>
 </div>
@@ -68,41 +74,19 @@ export default {
     },
     methods: {
         loadData: function(){
-            this.$http.get("http://api.liantui.xyz/pcr", { params: {table: 'hatsune_schedule'}}).then((response)=>{
+            
+            this.$http.get("http://api.liantui.xyz/pcr/hatsune").then((response)=>{
                 this.setEventData(response.data);
             });
-            this.$http.get("http://api.liantui.xyz/pcr", { params: {table: 'clan_battle_period'}}).then((response)=>{
+            this.$http.get("http://api.liantui.xyz/pcr/clanperiod").then((response)=>{
                 this.setClanSchedule(response.data);
             });
-            this.$http.get("http://api.liantui.xyz/pcr", { params: {table: 'campaign_schedule'}}).then((response)=>{
+            this.$http.get("http://api.liantui.xyz/pcr/campaign").then((response)=>{
                 this.setCampaignSchedule(response.data);
             });
-            this.$http.get("http://api.liantui.xyz/pcr", { params: {table: 'gacha_data'}}).then((response)=>{
+            this.$http.get("http://api.liantui.xyz/pcr/gacha").then((response)=>{
                 this.setGachaData(response.data);
             });
-
-            // this.$http.get('/static/main.sqlite' ,{responseType: 'arraybuffer'}).then((response) => {
-            //     var Uints = new Uint8Array(response.data);
-            //     var db = new SQL.Database(Uints);
-            //     this.Common.db = db;
-            //     console.log('event index database loaded');
-
-            //     //var result = db.prepare("select * from hatsune_schedule")
-            //     //this.setEventData(result);
-
-            //     var result = db.prepare("select * from clan_battle_period")
-            //     this.setClanSchedule(result);
-
-            //     result = db.prepare("select * from campaign_schedule");
-            //     this.setCampaignSchedule(result);
-
-            //     result = db.prepare("select * from gacha_data");
-            //     this.setGachaData(result);
-
-            //     result.free();
-            // }, (err) => {
-            //     console.log(err);
-            // });  
         },
         setEventData: function(result){
             var dic = {};
@@ -143,6 +127,7 @@ export default {
             var dd = [];
             var now = this.date.getTime();
             var ced;
+            console.log(result);
             for(var id in result){
                 let ele = result[id];
                 let index = ele.id;
@@ -202,3 +187,51 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+#mainIndexBox {
+    display: block;
+    position: relative;
+    width: 100%;
+    font-size: 0;
+
+    .indexLeft {
+        position: relative;
+        display: inline-block;
+        width: 60%;
+        font-size: 16px;
+    }
+
+    .indexRight {
+        position: relative;
+        display: inline-block;
+        width: 40%;
+        height: auto;
+        font-size: 16px;
+        text-align: right;
+        vertical-align: top;
+
+        .rightBox {
+                position: relative;
+                margin-left: auto;
+                margin-right: 0;
+                margin-top: 10px;
+                width: 340px;
+                box-shadow: 0 1px 5px rgba(0,0,0,.2), 0 2px 2px rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.12);
+
+                div.boxHead {
+                    position: relative;
+                    padding: 10px 15px 10px;
+                    color: white;
+                    background: pink;
+                }
+                div.boxMain{
+                    padding: 10px;
+                    //height: 100%;
+                }
+        }
+
+    }
+}
+
+</style>

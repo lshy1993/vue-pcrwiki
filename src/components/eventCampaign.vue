@@ -11,19 +11,19 @@
     </div>
     <div class="campaignFoot clearfixbox" v-if="!isNext">
         <div class="clearfix">
-            <h2>{{rday}}</h2>
+            <h2>{{ rday }}</h2>
             <h2>Days</h2>
         </div>
         <div class="clearfix">
-            <h2>{{rhour}}</h2>
+            <h2>{{ rhour }}</h2>
             <h2>Hours</h2>
         </div>
         <div class="clearfix">
-            <h2>{{rmiute}}</h2>
+            <h2>{{ rmiute }}</h2>
             <h2>Mins</h2>
         </div>
         <div class="clearfix">
-            <h2>{{rsec}}</h2>
+            <h2>{{ rsec }}</h2>
             <h2>Secs</h2>
         </div>
     </div>
@@ -93,7 +93,8 @@ export default {
     position: relative;
     margin: 10px;
     width: 200px;
-    height: 200px;
+    //height: 200px;
+    height: auto;
     box-shadow: 0 1px 5px rgba(0,0,0,.2), 0 2px 2px rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.12);
 
     div.campaignHead {
@@ -104,7 +105,7 @@ export default {
     }
 
     div.campaignMain {
-        height: 100%;
+        //height: 100%;
         padding: 10px;
     }
     .campaignExplain{
@@ -112,7 +113,7 @@ export default {
     }
 
     div.campaignFoot {
-        position: absolute;
+        position: relative;
         padding: 5px;
         bottom: 0;
         left: 0;

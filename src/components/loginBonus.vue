@@ -1,7 +1,7 @@
 <template>
-<div class="loginbox">
-    <div class="loginHead">每日登陆奖励</div>
-    <div class="loginMain clearfixbox">
+<div id="loginbox" class="rightBox">
+    <div class="boxHead">每日登陆奖励</div>
+    <div class="boxMain clearfixbox">
         <div class="clearfix small_icon64 relative" v-for="(ele,key) in loginData" :key="key">
             <img :src="Common.getRewardImg(ele.reward_type,ele.reward_id)">
             <div class="floatnum">
@@ -47,23 +47,7 @@ export default {
 
 <style lang="scss">
 .loginbox {
-    position: absolute;
-    top: 660px;
-    right: 0;
-    margin: 10px;
-    width: 340px;
-    box-shadow: 0 1px 5px rgba(0,0,0,.2), 0 2px 2px rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.12);
 
-    div.loginHead {
-        position: relative;
-        padding: 10px 15px 10px;
-        color: white;
-        background: pink;
-    }
-    div.loginMain{
-        padding: 10px;
-        //height: 100%;
-    }
 }
 </style>
 

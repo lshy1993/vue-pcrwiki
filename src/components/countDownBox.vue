@@ -1,7 +1,7 @@
 <template>
-<div class="countdownbox">
-    <div class="cdHead">计时器</div>
-    <div class="cdMain">
+<div id="countdownbox" class="rightBox">
+    <div class="boxHead">计时器</div>
+    <div class="boxMain">
         <h3>ノーマルガチャ　リセット</h3>
         <count-down :date="date" :endtime="ncend" />
         <h3>通常ショップ　リセット</h3>
@@ -99,23 +99,7 @@ export default {
 
 <style lang="scss">
 .countdownbox {
-    position: absolute;
-    top: 60px;
-    right: 0;
-    margin: 10px;
-    width: 340px;
-    box-shadow: 0 1px 5px rgba(0,0,0,.2), 0 2px 2px rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.12);
 
-    div.cdHead {
-        position: relative;
-        padding: 10px 15px 10px;
-        color: white;
-        background: pink;
-    }
-    div.cdMain{
-        padding: 10px;
-        //height: 100%;
-    }
 }
 </style>
 

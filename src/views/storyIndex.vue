@@ -1,7 +1,7 @@
 <template>
 <div class="inset-container">
     <div class="section whitebox">
-    <h2>请选择故事</h2>
+    <h2>角色故事</h2>
     <div id="tablist">
         <button v-on:click="mode=2">Main</button>
         <button v-on:click="mode=0">Chara</button>    

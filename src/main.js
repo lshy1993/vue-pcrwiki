@@ -1,4 +1,8 @@
 import Vue from 'vue';
+
+import VueI18n from 'vue-i18n';
+Vue.use(VueI18n);
+
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
@@ -6,8 +10,11 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 Vue.use(VueAxios,axios);
 
-import SQL from 'sql.js';
-Vue.use(SQL);
+import moment from 'vue-moment';
+Vue.use(moment);
+
+// import SQL from 'sql.js';
+// Vue.use(SQL);
 
 //公用数据
 import CommonData from './commonData.js';
@@ -15,12 +22,16 @@ Vue.prototype.Common = CommonData;
 //翻译数据
 import Translation from './translateData.js';
 Vue.prototype.Translation = Translation;
+//界面多语言
+import { lq } from './language.js';
+const i18n = new VueI18n({
+  locale: 'ja',    // 语言标识
+  //this.$i18n.locale // 通过切换locale的值来实现语言切换
+  messages: lq
+})
 
-import Aplayer from 'vue-aplayer';
-Vue.component('aplayer', Aplayer);
-
-import moment from 'vue-moment';
-Vue.use(moment);
+// import Aplayer from 'vue-aplayer';
+// Vue.component('aplayer', Aplayer);
 
 //Spine动画
 // import { spine } from './spine-webgl.js';
@@ -29,7 +40,7 @@ Vue.use(moment);
 
 import './style/common.scss';
 
-
+//组件注册
 import App from './App.vue';
 import MainIndex from './views/MainIndex.vue';
 

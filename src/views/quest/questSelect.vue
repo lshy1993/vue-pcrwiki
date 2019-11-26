@@ -81,8 +81,8 @@ export default {
     },
     methods: {
         loadData: function(){
-
-            this.$http.get("http://api.liantui.xyz/pcr/quest").then((response)=>{
+            var url = this.Common.GetApi("pcr/quest");
+            this.$http.get(url).then((response)=>{
                 this.setQuestAreaDic(response.data.questAreaDic);
                 this.setTrainingQuest(response.data.setTrainingQuest);
                 this.setDungeonAreaDic(response.data.dungeonAreaDic);

@@ -25,8 +25,8 @@ export default {
     },
     methods:{
         loadData: function(){
-
-            this.$http.get("http://api.liantui.xyz/pcr/loginbonus").then((response)=>{
+            var url = this.Common.GetApi("pcr/loginbonus");
+            this.$http.get(url).then((response)=>{
                 this.setLoginBonus(response.data);
             });
             // var result = this.Common.prepare("SELECT * FROM login_bonus_detail WHERE login_bonus_id = 30000");

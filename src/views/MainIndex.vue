@@ -75,16 +75,16 @@ export default {
     methods: {
         loadData: function(){
             
-            this.$http.get("http://api.liantui.xyz/pcr/hatsune").then((response)=>{
+            this.$http.get(this.Common.GetApi("pcr/hatsune")).then((response)=>{
                 this.setEventData(response.data);
             });
-            this.$http.get("http://api.liantui.xyz/pcr/clanperiod").then((response)=>{
+            this.$http.get(this.Common.GetApi("pcr/clanperiod")).then((response)=>{
                 this.setClanSchedule(response.data);
             });
-            this.$http.get("http://api.liantui.xyz/pcr/campaign").then((response)=>{
+            this.$http.get(this.Common.GetApi("pcr/campaign")).then((response)=>{
                 this.setCampaignSchedule(response.data);
             });
-            this.$http.get("http://api.liantui.xyz/pcr/gacha").then((response)=>{
+            this.$http.get(this.Common.GetApi("pcr/gacha")).then((response)=>{
                 this.setGachaData(response.data);
             });
         },

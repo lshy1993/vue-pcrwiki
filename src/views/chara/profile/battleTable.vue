@@ -226,7 +226,8 @@ export default {
 	methods:{
 		loadStaticData: function(){
 			//读取常用列表 仅在create时调用
-			this.$http.get("http://api.liantui.xyz/pcr/battle").then((response)=>{
+			var url = this.Common.GetApi("pcr/battle");
+			this.$http.get(url).then((response)=>{
                 this.setEquip(response.data.Equip);
                 this.setEquipRate(response.data.EquipRate);
                 this.setUnitExp(response.data.UnitExp);
@@ -236,7 +237,8 @@ export default {
 		},
 		loadDate: function(){
 			//根据uintid每次重新获取的部分
-			this.$http.get("http://api.liantui.xyz/pcr/battle/"+this.unitid).then((response)=>{
+			var url = this.Common.GetApi("pcr/battle/"+this.unitid);
+			this.$http.get(url).then((response)=>{
                 this.setData(response.data.Data);
                 this.setRarity(response.data.Rarity);
                 this.setPromotion(response.data.Promotion);

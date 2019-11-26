@@ -51,7 +51,8 @@ export default {
     methods: {
         loadData: function(){
             console.log("loading chara list");
-            this.$http.get("http://api.liantui.xyz/pcr/chara").then((response)=>{
+            var url = this.Common.GetApi('pcr/chara');
+            this.$http.get(url).then((response)=>{
                 this.setCharaPlate(response.data);
             });
             //var result = this.Common.db.prepare("SELECT * FROM unit_data WHERE unit_id < 200000");

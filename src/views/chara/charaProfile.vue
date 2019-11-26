@@ -49,7 +49,8 @@ export default {
 	methods:{
         setProfile: function(){
             console.log('setProfile',this.unitID);
-            this.$http.get("http://api.liantui.xyz/pcr/profile/"+this.unitID).then((response)=>{
+            var url = this.Common.GetApi("pcr/profile/"+this.unitID);
+            this.$http.get(url).then((response)=>{
                 this.profileInfo = response.data[0];
             });
         }

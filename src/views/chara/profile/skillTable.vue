@@ -41,10 +41,12 @@ export default {
     methods:{
         loadData: function(){
             var unitid = parseInt(this.unitid/100);
-            this.$http.get("http://api.liantui.xyz/pcr/skillcost").then((response)=>{
+            var url = this.Common.GetApi("pcr/skillcost");
+            this.$http.get(url).then((response)=>{
                 this.setCostTable(response.data);
             });
-            this.$http.get("http://api.liantui.xyz/pcr/skilldata/"+unitid).then((response)=>{
+            var url2 = this.Common.GetApi("pcr/skilldata/"+unitid);
+            this.$http.get(url2).then((response)=>{
                 // this.skillAction = ;
                 this.setSkillDic(response.data.skilldata);
                 this.setSkillAction(response.data.skillaction);

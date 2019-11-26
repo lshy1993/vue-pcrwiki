@@ -70,7 +70,8 @@ export default {
             this.filter = childValue;
         },
         loadData: function (params) {
-            this.$http.get("http://api.liantui.xyz/pcr/story").then((response)=>{
+            var url = this.Common.GetApi("pcr/story");
+            this.$http.get(url).then((response)=>{
                 this.setStoryList(response.data);
 			});
         },

@@ -111,13 +111,15 @@ export default {
     },
     methods: {
         loadAreaData: function(){
-            this.$http.get("http://api.liantui.xyz/pcr/questarea/"+this.areaid).then((response)=>{
+            var url = this.Common.GetApi("pcr/questarea/"+this.areaid);
+            this.$http.get(url).then((response)=>{
                 this.setQuestAreaDic(response.data.AreaData);
                 this.setQuestDic(response.data.QuestDatas);
             });
         },
         loadData: function(){
-            this.$http.get("http://api.liantui.xyz/pcr/quest/"+this.questid).then((response)=>{
+            var url = this.Common.GetApi("pcr/quest/"+this.questid);
+            this.$http.get(url).then((response)=>{
                 this.waveGroup = response.data.WaveGroup;
                 this.setWaveDic(response.data.WaveDic);
                 this.mainRewardData = response.data.MainRewardData;

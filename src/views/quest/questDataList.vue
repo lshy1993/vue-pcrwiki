@@ -92,7 +92,8 @@ export default {
     },
     methods:{
         loadStaticData: function(){
-            this.$http.get("http://api.liantui.xyz/pcr/quest").then((response)=>{
+            var url = this.Common.GetApi("pcr/quest");
+            this.$http.get(url).then((response)=>{
                 this.setQuestAreaDic(response.data.questAreaDic);
             });
             // var result = this.Common.db.prepare("SELECT * FROM quest_area_data");
@@ -100,7 +101,8 @@ export default {
         },
         loadData: function(){
             //根据选择不同每次重新获取
-            this.$http.get("http://api.liantui.xyz/pcr/questlist/"+this.areaid).then((response)=>{
+            var url = this.Common.GetApi("pcr/questlist/"+this.areaid);
+            this.$http.get(url).then((response)=>{
                 //this.setQuestDic(response.data.QuestDic);
                 this.questDic = response.data.QuestDic;
                 this.waveGroup = response.data.WaveGroup;
@@ -108,66 +110,6 @@ export default {
                 this.dropGroup = response.data.DropGroup;
                 this.setDropDic(response.data.DropDic);
             });
-
-
-
-            // this.$http.get("http://api.liantui.xyz/pcr/questarea/"+this.areaid).then((response)=>{
-            //     this.setQuestDic(response.data.QuestDatas);
-            //     //对每个地图获取3波次资料
-            //     var dp = {};
-            //     var waveGroup = [];
-            //     for(var id in this.questDic){
-            //         var ele = this.questDic[id];
-            //         var tt = [];
-            //         for(var i=1;i<=3;i++){
-            //             let waveid = ele['wave_group_id_'+i];
-            //             waveGroup.push(waveid);
-            //             tt.push(waveid);
-            //         }
-            //         dp[id] = tt;
-            //     }
-            //     this.waveGroup = dp;
-            //     this.$http.get("http://api.liantui.xyz/pcr", { params: {table: 'wave_group_data',condition: "wave_group_id IN (" + waveGroup +")" }}).then((response)=>{
-            //         this.setWaveDic(response.data);
-            //         //所有可能的掉落资料分组与查询
-            //         var drop_group = {};
-            //         var sql_group = [];
-            //         //根据wavegroup获取3组的掉落波次
-            //         for(var id in this.waveGroup){
-            //             //id是地图编号
-            //             var dd = [];
-            //             var group = this.waveGroup[id];
-            //             for(var j in group){
-            //                 //key是波次id
-            //                 var key = group[j];
-            //                 var ele = this.waveDic[key];
-            //                 for(var i=1; i<=5; i++){
-            //                     let rewardid = ele['drop_reward_id_'+i];
-            //                     if(rewardid != 0){
-            //                         dd.push(rewardid);
-            //                         sql_group.push(rewardid);
-            //                     }
-            //                 }
-            //             }
-            //             drop_group[id] = dd;
-            //         }
-            //         this.dropGroup = drop_group;
-            //         this.$http.get("http://api.liantui.xyz/pcr", { params: {table: 'enemy_reward_data', condition: "drop_reward_id IN (" + sql_group +")" }}).then((response)=>{
-            //             this.setDropDic(response.data);
-            //         });
-            //     });
-            // });
-            // var result = this.Common.db.prepare("SELECT * FROM quest_data WHERE area_id = "+this.areaid);
-            // this.setQuestDic(result);
-            
-            
-            // result = this.Common.db.prepare("SELECT * FROM wave_group_data WHERE wave_group_id IN (" + waveGroup +")");
-            // this.setWaveDic(result);
-
-            
-            // result = this.Common.db.prepare("SELECT * FROM enemy_reward_data WHERE drop_reward_id IN (" + sql_group +")");
-            // this.setDropDic(result);
-
         },
         setQuestAreaDic: function(result) {
             var dic = {};

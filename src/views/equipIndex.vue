@@ -47,7 +47,8 @@ export default {
             this.filter = childValue;
         },
         loadData: function(){
-            this.$http.get("http://api.liantui.xyz/pcr/equip").then((response)=>{
+            var url = this.Common.GetApi("pcr/equip");
+            this.$http.get(url).then((response)=>{
                 this.setEquipDic(response.data);
             });
         },

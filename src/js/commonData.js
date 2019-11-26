@@ -111,7 +111,8 @@ var db;
 var rpmode = 'repeat-one';
 
 function prepare(sql){
-    this.$http.get("http://api.liantui.xyz/pcr", { params: {sql: sql}}).then((response)=>{
+    var url = GetApi('pcr');
+    this.$http.get(url, { params: {sql: sql}}).then((response)=>{
         return response.data;
     });
 }
@@ -206,6 +207,10 @@ function changeByte(bytes){
     //return btsize/1024;
 }
 
+function GetApi(path){
+    return 'https://api.liantui.moe/'+path;
+}
+
 export default {
     naviBtn,
     status_type,
@@ -236,5 +241,6 @@ export default {
     getGuildStoryThumb,
     getDungeonThumb,
     ranBG,
-    changeByte
+    changeByte,
+    GetApi
 }

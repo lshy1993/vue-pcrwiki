@@ -38,7 +38,8 @@ export default {
 	},
 	methods: {
 		loadData: function(){
-			this.$http.get("http://api.liantui.xyz/pcr/voice/"+this.unitid).then((response)=>{
+			var url = this.Common.GetApi("pcr/voice/"+this.unitid);
+			this.$http.get(url).then((response)=>{
                 this.setVoiceData(response.data);
             });
 			//var result = this.Common.prepare("SELECT * FROM album_voice_list WHERE unit_id = " + this.unitid);

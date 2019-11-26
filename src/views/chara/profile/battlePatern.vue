@@ -44,7 +44,8 @@ export default {
     },
     methods: {
         loadData: function(){
-            this.$http.get("http://api.liantui.xyz/pcr/atkpattern/"+this.unitid).then((response)=>{
+            var url = this.Common.GetApi("pcr/atkpattern/"+this.unitid);
+            this.$http.get(url).then((response)=>{
                 this.setPatternData(response.data);
             });
         },

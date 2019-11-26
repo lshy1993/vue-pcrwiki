@@ -17,13 +17,14 @@ Vue.use(moment);
 // Vue.use(SQL);
 
 //公用数据
-import CommonData from './commonData.js';
+import CommonData from './js/commonData.js';
 Vue.prototype.Common = CommonData;
 //翻译数据
-import Translation from './translateData.js';
+import Translation from './js/translateData.js';
 Vue.prototype.Translation = Translation;
+
 //界面多语言
-import { lq } from './language.js';
+import { lq } from './js/language.js';
 const i18n = new VueI18n({
   locale: 'ja',    // 语言标识
   //this.$i18n.locale // 通过切换locale的值来实现语言切换

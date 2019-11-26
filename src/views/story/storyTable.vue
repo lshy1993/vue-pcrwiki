@@ -44,8 +44,8 @@ export default {
     methods: {
         loadData: function(){
             this.storyid = parseInt(this.$route.params.id);
-            
-            this.$http.get("http://api.liantui.xyz/pcr/story/"+this.storyid).then((response)=>{
+            var url = this.Common.GetApi("pcr/story/"+this.storyid);
+            this.$http.get(url).then((response)=>{
                 this.setStoryList(response.data.storyList);
                 this.setStoryStatus(response.data.storyStatus);
             });

@@ -33,10 +33,10 @@ export default {
     },
     methods:{
         loadData: function(){
-            
-            this.$http.get("http://api.liantui.xyz/pcr", { params: {table: 'clan_battle_period' }}).then((response)=>{
+            var url = this.Common.GetApi("pcr");
+            this.$http.get(url, { params: {table: 'clan_battle_period' }}).then((response)=>{
                 var clanid = this.getClanId(response.data);
-                this.$http.get("http://api.liantui.xyz/pcr", { params: {table: 'clan_battle_period_rank_reward', condition: "clan_battle_id ="+clanid }}).then((response)=>{
+                this.$http.get(url, { params: {table: 'clan_battle_period_rank_reward', condition: "clan_battle_id ="+clanid }}).then((response)=>{
                     this.rankList = this.setRewardList(response.data);
                 });
             });

@@ -46,8 +46,8 @@ export default {
     },
     methods:{
         loadData:function(){
-            
-            this.$http.get("http://api.liantui.xyz/pcr/arena/"+this.ranknum).then((response)=>{
+            var url = this.Common.GetApi("pcr/arena/"+this.ranknum);
+            this.$http.get(url).then((response)=>{
                 this.dailyList = this.getRankList(response.data.dailyList);
                 this.rankList = this.getRankList(response.data.rankList);
                 this.grandDailyList = this.getRankList(response.data.grandDailyList);

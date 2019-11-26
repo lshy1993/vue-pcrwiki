@@ -26,10 +26,11 @@ export default {
     },
     methods: {
         loadData: function(){
-            this.$http.get("http://api.liantui.xyz/pcr", { params: {table: 'daily_mission_data' }}).then((response)=>{
+            var url = this.Common.GetApi('pcr');
+            this.$http.get(url, { params: {table: 'daily_mission_data' }}).then((response)=>{
                 this.setDailyMissionDic(response.data);
             });
-            this.$http.get("http://api.liantui.xyz/pcr", { params: {table: 'mission_reward_data' }}).then((response)=>{
+            this.$http.get(url, { params: {table: 'mission_reward_data' }}).then((response)=>{
                 this.setMissonRewardDic(response.data);
             });
 

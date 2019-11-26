@@ -36,7 +36,8 @@ export default {
     methods:{
         loadData: function(){
             console.log('LOAD unit_promotion'+this.unitid);
-            this.$http.get("//api.liantui.xyz/pcr/promotion/"+this.unitid).then((response)=>{
+            var url = this.Common.GetApi("pcr/promotion/"+this.unitid);
+            this.$http.get(url).then((response)=>{
                 this.setPromotionList(response.data);
             });
         },

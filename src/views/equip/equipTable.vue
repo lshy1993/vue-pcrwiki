@@ -85,7 +85,8 @@ export default {
     },
     methods: {
         loadData: function(){
-            this.$http.get("http://api.liantui.xyz/pcr/equip/"+this.equipid).then((response)=>{
+            var url = this.Common.GetApi("pcr/equip/"+this.equipid);
+            this.$http.get(url).then((response)=>{
                 this.equipData = response.data.EquipData;
                 this.equipRate = response.data.EquipRate;
                 this.equipCraft = response.data.EquipCraft;

@@ -17,7 +17,6 @@
 </template>
 
 <script>
-import Aplayer from 'vue-aplayer';
 export default {
 	name: 'CharaVoice',
     props: ['unitid'],
@@ -62,7 +61,7 @@ export default {
 		}
 	},
 	components: {
-		Aplayer
+		//Aplayer
 	}
 }
 </script>
